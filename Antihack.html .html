@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Long Password Generator</title>
+</head>
+<body>
+
+	<h1>Long Password Generator</h1>
+	
+	<p>Enter the desired length of the password:</p>
+	
+	<input type="number" id="length" name="length" min="1" max="100">
+	
+	<button onclick="generatePassword()">Generate Password</button>
+	
+	<p id="password"></p>
+	
+	<script>
+		function generatePassword() {
+			var length = document.getElementById("length").value;
+			var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]\:;?><,./-=";
+			var password = "";
+			for (var i = 0; i < length; i++) {
+				var randomChar = Math.floor(Math.random() * charset.length);
+				password += charset.substring(randomChar, randomChar+1);
+			}
+			document.getElementById("password").innerHTML = password;
+		}
+	</script>
+
+</body>
+</html>
